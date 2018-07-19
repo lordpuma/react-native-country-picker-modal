@@ -82,7 +82,9 @@ export default class CountryPicker extends Component {
     hideAlphabetFilter: PropTypes.bool,
     renderFilter: PropTypes.func,
     showCallingCode: PropTypes.bool,
-    filterOptions: PropTypes.object
+    filterOptions: PropTypes.object,
+    formatName: PropTypes.func
+    header: PropTypes.element 
   }
 
   static defaultProps = {
@@ -92,7 +94,9 @@ export default class CountryPicker extends Component {
     filterPlaceholder: 'Filter',
     autoFocusFilter: true,
     transparent: false,
-    animationType: 'none'
+    animationType: 'none',
+    header: null,
+    formatName: (countryName) => countryName,
   }
 
   static renderEmojiFlag(cca2, emojiStyle) {
@@ -127,6 +131,7 @@ export default class CountryPicker extends Component {
   constructor(props) {
     super(props)
     this.openModal = this.openModal.bind(this)
+    this.closeModal = this.onClose.bind(this)
 
     setCountries(props.flagType)
     let countryList = [...props.countryList]
@@ -251,6 +256,7 @@ export default class CountryPicker extends Component {
   }
 
   openModal = this.openModal.bind(this)
+  closeModal = this.onClose.bind(this)
 
   // dimensions of country list and window
   itemHeight = getHeightPercent(7)
@@ -328,10 +334,7 @@ export default class CountryPicker extends Component {
         {CountryPicker.renderFlag(cca2)}
         <View style={styles.itemCountryName}>
           <Text style={styles.countryName} allowFontScaling={false}>
-            {this.getCountryName(country)}
-            {this.props.showCallingCode &&
-            country.callingCode &&
-            <Text>{` (+${country.callingCode})`}</Text>}
+            {this.props.formatName(this.getCountryName(country), country.callingCode)}
           </Text>
         </View>
       </View>
@@ -390,6 +393,7 @@ export default class CountryPicker extends Component {
           onRequestClose={() => this.setState({ modalVisible: false })}
         >
           <SafeAreaView style={styles.modalContainer}>
+            {this.props.header}
             <View style={styles.header}>
               {this.props.closeable && (
                 <CloseButton
