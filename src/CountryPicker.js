@@ -83,7 +83,7 @@ export default class CountryPicker extends Component {
     renderFilter: PropTypes.func,
     showCallingCode: PropTypes.bool,
     filterOptions: PropTypes.object,
-    formatName: PropTypes.func
+    formatName: PropTypes.func,
     header: PropTypes.element 
   }
 
