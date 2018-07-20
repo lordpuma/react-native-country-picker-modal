@@ -3,8 +3,10 @@
 </p>
 
 <h3 align="center">
-  The best Country Picker for React Native.
+  Custom fork of the best Country Picker for React Native.
 </h3>
+
+<p align="center">I didn't like some of the features of the library, so i created this fork to allow me to customize it. :]</p>
 
 <p align="center">
   <a href="https://reactnative.gallery"><img src="https://img.shields.io/badge/reactnative.gallery-%E2%99%A5-red.svg"></a>
@@ -199,7 +201,8 @@ const darkTheme = StyleSheet.create({
 | closeButtonImage  | React.element| default close button Image                                                                               | Custom close button Image
 | flagType  | string | 'emoji' on iOS, 'flat' on Android | If set, overwrites the default OS based flag type.
 | hideAlphabetFilter  | bool | false | If set to true, prevents the alphabet filter rendering
-| showCallingCode | bool | false | If set to true, Country Picker List will show calling code after country name `United States (+1)`
+| formatName | Function | name => name | Allows you to format the way country names are presented. Has two params, country name and calling code.
+| header | ReactElement | null | Allows you to put your own header above the modals header, to keep same look across your app.
 | renderFilter  | Function | undefined | If 'filterable={true}' and renderFilter function is provided, render custom filter component.\*
 
 \* 
@@ -226,23 +229,10 @@ YES
 
 YES : It used the world-countries package and image is stored into json and base64.
 
-## Tiers lib using this lib
-
-* [react-native-phone-verification](https://github.com/joinspontaneous/react-native-phone-verification)
-
-[> Your project?](https://github.com/xcarpentier/react-native-linkedin/issues/new)
-
-## See also
-
-* [react-native-linkedin](https://github.com/xcarpentier/react-native-linkedin)
-
 ## Contribution
 
 * [@xcapentier](mailto:contact@xaviercarpentier.com) The main author.
-
-## Questions
-
-Feel free to [contact me](mailto:contact@xaviercarpentier.com) or [create an issue](https://github.com/xcarpentier/react-native-country-picker/issues/new)
+* [@lordpuma](mailto:tom@tomkoreny.com) This custom fork.
 
 > made with ♥
 

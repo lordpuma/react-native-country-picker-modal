@@ -81,7 +81,7 @@ export default class CountryPicker extends Component {
     flagType: PropTypes.oneOf(Object.values(FLAG_TYPES)),
     hideAlphabetFilter: PropTypes.bool,
     renderFilter: PropTypes.func,
-    showCallingCode: PropTypes.bool,
+//    showCallingCode: PropTypes.bool,
     filterOptions: PropTypes.object,
     formatName: PropTypes.func,
     header: PropTypes.element 
